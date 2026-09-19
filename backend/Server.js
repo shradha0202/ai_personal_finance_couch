@@ -5,6 +5,7 @@ const cors = require("cors");
 const connectDB = require("./config/db");
 const transactionRoutes=require("./routes/transactionRoutes");
 const budgetRoutes = require("./routes/budgetRoutes");
+const goalRoutes = require("./routes/goalRoutes");
 const app = express();
 
 app.use(cors());
@@ -14,6 +15,7 @@ app.use(express.json());
 connectDB();
 app.use("/api/transactions",transactionRoutes);
 app.use("/api/budgets", budgetRoutes);
+app.use("/api/goals", goalRoutes);
 
 app.get("/", (req, res) => {
     res.send("Finance Coach Backend is running!");
