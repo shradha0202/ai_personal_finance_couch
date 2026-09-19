@@ -1,77 +1,79 @@
 import { NavLink } from "react-router-dom";
-import {
-  LayoutDashboard,
-  Receipt,
-  WalletCards,
-  PiggyBank,
-  Bot,
-} from "lucide-react";
 
-function Sidebar() {
-  const links = [
-    {
-      name: "Dashboard",
-      path: "/",
-      icon: LayoutDashboard,
-    },
-    {
-      name: "Transactions",
-      path: "/transactions",
-      icon: Receipt,
-    },
-    {
-      name: "Budget",
-      path: "/budget",
-      icon: WalletCards,
-    },
-    {
-      name: "Savings Goals",
-      path: "/savings",
-      icon: PiggyBank,
-    },
-    {
-      name: "AI Finance Coach",
-      path: "/ai-coach",
-      icon: Bot,
-    },
-  ];
-
+export default function Sidebar() {
   return (
     <aside className="sidebar">
-      <div className="logo">
+      <div className="sidebar-logo">
         <div className="logo-icon">₹</div>
 
-        <div>
-          <h2>Finance</h2>
-          <span>Coach</span>
+        <div className="logo-text">
+          <h1>Finance Coach</h1>
+          <span>Personal Finance</span>
         </div>
       </div>
 
-      <nav>
-        {links.map((link) => {
-          const Icon = link.icon;
+      <nav className="sidebar-nav">
+        <NavLink
+          to="/dashboard"
+          className={({ isActive }) =>
+            `nav-item ${isActive ? "active" : ""}`
+          }
+        >
+          <span className="nav-icon">⌂</span>
+          <span>Dashboard</span>
+        </NavLink>
 
-          return (
-            <NavLink
-              key={link.path}
-              to={link.path}
-              end={link.path === "/"}
-              className={({ isActive }) =>
-                isActive ? "nav-link active" : "nav-link"
-              }
-            >
-              <Icon size={20} />
-              <span>{link.name}</span>
-            </NavLink>
-          );
-        })}
+        <NavLink
+          to="/transactions"
+          className={({ isActive }) =>
+            `nav-item ${isActive ? "active" : ""}`
+          }
+        >
+          <span className="nav-icon">↕</span>
+          <span>Transactions</span>
+        </NavLink>
+
+        <NavLink
+          to="/budget"
+          className={({ isActive }) =>
+            `nav-item ${isActive ? "active" : ""}`
+          }
+        >
+          <span className="nav-icon">▣</span>
+          <span>Budget</span>
+        </NavLink>
+
+        <NavLink
+          to="/savings-goals"
+          className={({ isActive }) =>
+            `nav-item ${isActive ? "active" : ""}`
+          }
+        >
+          <span className="nav-icon">◎</span>
+          <span>Savings Goals</span>
+        </NavLink>
+
+        <NavLink
+          to="/ai-coach"
+          className={({ isActive }) =>
+            `nav-item ${isActive ? "active" : ""}`
+          }
+        >
+          <span className="nav-icon">✦</span>
+          <span>AI Finance Coach</span>
+        </NavLink>
       </nav>
 
       <div className="sidebar-bottom">
-        <p>Your finances, simplified.</p>
+        <div className="coach-card">
+          <div className="coach-icon">✦</div>
+
+          <div>
+            <strong>Finance Coach</strong>
+            <p>Manage your money smarter.</p>
+          </div>
+        </div>
       </div>
     </aside>
   );
 }
-
-export default Sidebar;
