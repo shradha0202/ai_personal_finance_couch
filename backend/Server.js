@@ -8,6 +8,7 @@ const budgetRoutes = require("./routes/budgetRoutes");
 const goalRoutes = require("./routes/goalRoutes");
 const dashboardRoutes = require("./routes/dashboardRoutes");
 const recurringRoutes = require("./routes/recurringRoutes");
+const analysisRoutes = require("./routes/analysisRoutes");
 const app = express();
 
 app.use(cors());
@@ -20,6 +21,7 @@ app.use("/api/budgets", budgetRoutes);
 app.use("/api/goals", goalRoutes);
 app.use("/api/dashboard", dashboardRoutes);
 app.use("/api/recurring", recurringRoutes);
+app.use("/api/analysis", analysisRoutes);
 
 app.get("/", (req, res) => {
     res.send("Finance Coach Backend is running!");
