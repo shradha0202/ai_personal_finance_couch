@@ -4,3 +4,1300 @@ body,
   margin: 0;
   min-height: 100%;
 }
+/* ================================
+   SMOOTH UI ANIMATIONS
+================================ */
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes floatIcon {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes pulseGlow {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.04);
+  }
+}
+
+/* Page entrance */
+.page {
+  animation: fadeUp 0.5s ease-out;
+}
+
+/* Cards */
+.card {
+  animation: fadeUp 0.55s ease-out both;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+/* Summary cards */
+.summary-card {
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.summary-card:hover {
+  transform: translateY(-6px);
+}
+
+/* Buttons */
+button,
+.primary-button {
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    opacity 0.2s ease;
+}
+
+button:hover,
+.primary-button:hover {
+  transform: translateY(-2px);
+}
+
+button:active,
+.primary-button:active {
+  transform: scale(0.97);
+}
+
+/* AI Coach */
+.ai-hero-card {
+  animation: fadeUp 0.5s ease-out;
+}
+
+.ai-hero-icon,
+.ai-avatar,
+.ai-welcome-icon {
+  animation: floatIcon 2.5s ease-in-out infinite;
+}
+
+.ai-chat-card {
+  animation: fadeUp 0.65s ease-out;
+}
+
+.ai-message {
+  animation: fadeUp 0.35s ease-out;
+}
+
+.ai-suggestion-button {
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.ai-suggestion-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+}
+
+/* Bank statement analyzer */
+.statement-analyzer-card {
+  animation: fadeUp 0.7s ease-out;
+}
+
+.statement-upload-box {
+  animation: fadeIn 0.5s ease-out;
+}
+
+.statement-upload-icon {
+  animation: floatIcon 2s ease-in-out infinite;
+}
+
+.statement-result {
+  animation: fadeUp 0.5s ease-out;
+}
+
+.analysis-success {
+  animation: pulseGlow 1.5s ease-in-out;
+}
+
+.statement-summary-grid > div {
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.statement-summary-grid > div:hover {
+  transform: translateY(-3px);
+}
+
+/* Progress bar */
+.progress-fill {
+  transition: width 1s ease;
+}
+
+/* Table rows */
+tbody tr {
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+tbody tr:hover {
+  transform: translateX(3px);
+}
+
+/* Charts */
+.chart-card {
+  animation: fadeUp 0.65s ease-out both;
+}
+
+/* Remove file */
+.remove-file {
+  transition:
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.remove-file:hover {
+  transform: translateY(-1px);
+}
+/* =================================
+   DASHBOARD STAGGERED ANIMATION
+================================= */
+
+.summary-grid .summary-card:nth-child(1) {
+  animation-delay: 0.05s;
+}
+
+.summary-grid .summary-card:nth-child(2) {
+  animation-delay: 0.12s;
+}
+
+.summary-grid .summary-card:nth-child(3) {
+  animation-delay: 0.19s;
+}
+
+.summary-grid .summary-card:nth-child(4) {
+  animation-delay: 0.26s;
+}
+
+.dashboard-grid .chart-card:nth-child(1) {
+  animation-delay: 0.32s;
+}
+
+.dashboard-grid .chart-card:nth-child(2) {
+  animation-delay: 0.4s;
+}
+
+/* Savings card */
+.page > .card:nth-last-child(2) {
+  animation-delay: 0.48s;
+}
+
+/* Recent transactions */
+.page > .card:last-child {
+  animation-delay: 0.55s;
+}
+
+/* =================================
+   DASHBOARD HEADER
+================================= */
+
+.page-header h2 {
+  animation: fadeUp 0.45s ease-out;
+}
+
+.page-header p {
+  animation: fadeUp 0.55s ease-out;
+}
+
+/* =================================
+   SUMMARY NUMBER EFFECT
+================================= */
+
+.summary-card strong {
+  transition: transform 0.25s ease;
+}
+
+.summary-card:hover strong {
+  transform: scale(1.05);
+}
+
+/* =================================
+   GOAL PROGRESS
+================================= */
+
+.progress-bar {
+  overflow: hidden;
+}
+
+.progress-fill {
+  animation: progressGrow 1.2s ease-out;
+}
+
+@keyframes progressGrow {
+  from {
+    width: 0 !important;
+  }
+}
+
+/* =================================
+   TABLE HOVER
+================================= */
+
+table tbody tr {
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease;
+}
+
+table tbody tr:hover {
+  background-color: rgba(103, 6, 38, 0.035);
+  transform: translateX(4px);
+}
+/* =================================
+   SIDEBAR / NAVIGATION POLISH
+================================= */
+
+.sidebar,
+nav {
+  animation: fadeIn 0.5s ease-out;
+}
+
+/* Navigation items */
+.sidebar a,
+nav a {
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.sidebar a:hover,
+nav a:hover {
+  transform: translateX(5px);
+}
+
+/* Active navigation item */
+.sidebar a.active,
+nav a.active {
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.sidebar a.active:hover,
+nav a.active:hover {
+  transform: translateX(3px);
+}
+
+/* Sidebar logo/title */
+.sidebar h1,
+.sidebar h2,
+.sidebar .logo {
+  animation: fadeUp 0.5s ease-out;
+}
+
+/* Sidebar icons */
+.sidebar svg,
+.sidebar .icon {
+  transition: transform 0.2s ease;
+}
+
+.sidebar a:hover svg,
+.sidebar a:hover .icon {
+  transform: scale(1.1);
+}
+
+/* =================================
+   GENERAL INPUT POLISH
+================================= */
+
+input,
+select,
+textarea {
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  transform: translateY(-1px);
+}
+
+/* =================================
+   MOBILE FRIENDLY
+================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+/* =================================
+   TRANSACTIONS PAGE POLISH
+================================= */
+
+.table-wrapper {
+  animation: fadeUp 0.55s ease-out;
+}
+
+/* Transaction rows */
+.table-wrapper tbody tr {
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.table-wrapper tbody tr:hover {
+  transform: scale(1.01);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+/* Amount styling */
+.amount-income,
+.amount-expense {
+  transition: transform 0.2s ease;
+}
+
+tr:hover .amount-income,
+tr:hover .amount-expense {
+  transform: scale(1.05);
+}
+
+/* Badges */
+.badge {
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.badge:hover {
+  transform: scale(1.05);
+}
+
+/* Transaction action buttons */
+.table-wrapper button {
+  transition:
+    transform 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.table-wrapper button:hover {
+  transform: scale(1.08);
+}
+
+/* =================================
+   PAGE SECTION ANIMATION
+================================= */
+
+.page > * {
+  animation: fadeUp 0.5s ease-out both;
+}
+
+.page > *:nth-child(1) {
+  animation-delay: 0.05s;
+}
+
+.page > *:nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+.page > *:nth-child(3) {
+  animation-delay: 0.15s;
+}
+
+.page > *:nth-child(4) {
+  animation-delay: 0.2s;
+}
+
+.page > *:nth-child(5) {
+  animation-delay: 0.25s;
+}
+/* =================================
+   BUDGET PAGE POLISH
+================================= */
+
+.budget-card,
+.budget-item,
+.budget-section {
+  animation: fadeUp 0.5s ease-out both;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.budget-card:hover,
+.budget-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.07);
+}
+
+/* Budget progress bars */
+.budget-progress,
+.budget-bar {
+  overflow: hidden;
+}
+
+.budget-progress > div,
+.budget-bar > div {
+  transition: width 1s ease;
+  animation: progressGrow 1s ease-out;
+}
+
+/* Budget status badges */
+.budget-status,
+.status-badge {
+  transition: transform 0.2s ease;
+}
+
+.budget-status:hover,
+.status-badge:hover {
+  transform: scale(1.04);
+}
+
+/* Budget buttons */
+.budget-card button,
+.budget-item button {
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.budget-card button:hover,
+.budget-item button:hover {
+  transform: translateY(-2px);
+}
+
+/* Budget inputs */
+.budget-card input,
+.budget-item input {
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.budget-card input:focus,
+.budget-item input:focus {
+  box-shadow: 0 0 0 3px rgba(154, 22, 66, 0.12);
+}
+
+/* Over-budget emphasis */
+.over-budget {
+  animation: pulseGlow 2s ease-in-out infinite;
+}
+/* =================================
+   SAVINGS GOALS POLISH
+================================= */
+
+.goal-card,
+.savings-goal-card,
+.goal-item {
+  animation: fadeUp 0.55s ease-out both;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.goal-card:hover,
+.savings-goal-card:hover,
+.goal-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
+}
+
+/* Goal progress */
+.goal-card .progress-bar,
+.savings-goal-card .progress-bar,
+.goal-item .progress-bar {
+  overflow: hidden;
+}
+
+.goal-card .progress-fill,
+.savings-goal-card .progress-fill,
+.goal-item .progress-fill {
+  animation: progressGrow 1.2s ease-out;
+  transition: width 1s ease;
+}
+
+/* Goal percentage */
+.goal-card strong,
+.savings-goal-card strong,
+.goal-item strong {
+  transition: transform 0.2s ease;
+}
+
+.goal-card:hover strong,
+.savings-goal-card:hover strong,
+.goal-item:hover strong {
+  transform: scale(1.05);
+}
+
+/* Goal buttons */
+.goal-card button,
+.savings-goal-card button,
+.goal-item button {
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.goal-card button:hover,
+.savings-goal-card button:hover,
+.goal-item button:hover {
+  transform: translateY(-2px);
+}
+
+/* Goal input fields */
+.goal-card input,
+.savings-goal-card input,
+.goal-item input {
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.goal-card input:focus,
+.savings-goal-card input:focus,
+.goal-item input:focus {
+  box-shadow: 0 0 0 3px rgba(154, 22, 66, 0.12);
+}
+/* =================================
+   AI COACH PAGE POLISH
+================================= */
+
+/* Hero */
+.ai-hero-card {
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.ai-hero-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+/* Suggestions */
+.ai-suggestions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.ai-suggestion-button {
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.ai-suggestion-button:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+}
+
+/* Chat */
+.ai-chat-card {
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.ai-chat-card:hover {
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.07);
+}
+
+/* Chat messages */
+.user-message,
+.coach-message {
+  animation: fadeUp 0.35s ease-out;
+}
+
+/* Input */
+.ai-input-area input {
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+.ai-input-area input:focus {
+  transform: translateY(-1px);
+  box-shadow: 0 0 0 3px rgba(154, 22, 66, 0.1);
+}
+
+/* Finance summary */
+.ai-summary-card {
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.ai-summary-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.08);
+}
+
+/* =================================
+   BANK STATEMENT ANALYZER
+================================= */
+
+.statement-analyzer-card {
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.statement-analyzer-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+.statement-upload-box {
+  border: 2px dashed rgba(103, 6, 38, 0.2);
+  border-radius: 16px;
+  padding: 35px 20px;
+  text-align: center;
+  transition:
+    border-color 0.25s ease,
+    background-color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.statement-upload-box:hover {
+  border-color: rgba(103, 6, 38, 0.5);
+  background-color: rgba(103, 6, 38, 0.03);
+  transform: translateY(-2px);
+}
+
+.statement-upload-icon {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+.statement-selected {
+  animation: fadeUp 0.45s ease-out;
+}
+
+.selected-file {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.file-icon {
+  font-size: 30px;
+}
+
+.selected-file div:last-child {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+/* Analysis result */
+.statement-result {
+  margin-top: 20px;
+  animation: fadeUp 0.5s ease-out;
+}
+
+.analysis-success {
+  padding: 12px 15px;
+  border-radius: 10px;
+  margin-bottom: 18px;
+  font-weight: 600;
+  animation: pulseGlow 1.5s ease-in-out;
+}
+
+.statement-summary-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+
+.statement-summary-grid > div {
+  padding: 16px;
+  border-radius: 12px;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.statement-summary-grid > div:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.07);
+}
+
+.statement-summary-grid span,
+.statement-summary-grid strong {
+  display: block;
+}
+
+.statement-summary-grid strong {
+  margin-top: 6px;
+  font-size: 20px;
+}
+
+.statement-insight {
+  margin-top: 18px;
+  padding: 18px;
+  border-radius: 12px;
+  animation: fadeUp 0.6s ease-out;
+}
+
+.statement-insight p {
+  margin-bottom: 0;
+  line-height: 1.6;
+}
+
+/* Remove button */
+.remove-file {
+  margin-top: 15px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .statement-summary-grid {
+    grid-template-columns: 1fr;
+  }
+}
+/* =========================================
+   🍒 FINANCE COACH — CHERRY & WARM IVORY THEME
+========================================= */
+
+:root {
+  --cherry-deepest: #4a041c;
+  --cherry: #670626;
+  --cherry-bright: #9a1042;
+  --cherry-light: #c2185b;
+  --cherry-tint: #fdeef2;
+
+  --ivory: #f7f1ea;
+  --ivory-soft: #fffaf5;
+  --white: #ffffff;
+
+  --text-dark: #2c0d18;
+  --text-medium: #7a5b62;
+  --border: #eee0d8;
+
+  --success: #1f6d43;
+  --success-bg: #eaf6ee;
+  --danger: #a3123f;
+  --danger-bg: #fdeef2;
+}
+
+/* =========================================
+   GLOBAL
+========================================= */
+
+body {
+  background: var(--ivory);
+  background-image:
+    radial-gradient(circle at 8% 0%, rgba(103, 6, 38, 0.06), transparent 45%),
+    radial-gradient(circle at 100% 10%, rgba(194, 24, 91, 0.05), transparent 40%);
+  background-attachment: fixed;
+  color: var(--text-dark);
+  font-family: "Playfair Display", Inter, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+}
+
+.page {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 32px;
+}
+
+/* =========================================
+   TYPOGRAPHY
+========================================= */
+
+.page-header h2 {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 38px;
+  font-weight: 800;
+  letter-spacing: -1px;
+  color: var(--cherry);
+  margin-bottom: 6px;
+}
+
+.page-header p {
+  font-size: 16px;
+  color: var(--text-medium);
+}
+
+h3 {
+  font-size: 22px;
+  font-weight: 750;
+  letter-spacing: -0.3px;
+  color: var(--text-dark);
+}
+
+h4 {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+p {
+  line-height: 1.6;
+}
+
+/* =========================================
+   CARDS
+========================================= */
+
+.card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(74, 4, 28, 0.05);
+  padding: 26px;
+}
+
+.card:hover {
+  box-shadow: 0 14px 32px rgba(74, 4, 28, 0.1);
+}
+
+/* =========================================
+   SUMMARY CARDS
+========================================= */
+
+.summary-grid {
+  gap: 20px;
+}
+
+.summary-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px;
+  padding: 26px;
+  background: linear-gradient(160deg, var(--white) 60%, var(--cherry-tint) 130%);
+}
+
+.summary-card::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 5px;
+  height: 100%;
+  background: linear-gradient(180deg, var(--cherry-bright), var(--cherry-deepest));
+}
+
+.summary-card span {
+  display: block;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--text-medium);
+  margin-bottom: 10px;
+}
+
+.summary-card strong {
+  display: block;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 32px;
+  font-weight: 800;
+  letter-spacing: -0.8px;
+  color: var(--cherry);
+}
+
+.summary-card small {
+  display: block;
+  margin-top: 8px;
+  color: #9c8087;
+  font-size: 13px;
+}
+
+/* Income */
+.amount-income {
+  color: var(--success) !important;
+}
+
+/* Expense */
+.amount-expense {
+  color: var(--cherry) !important;
+}
+
+/* =========================================
+   CHERRY PRIMARY BUTTON
+========================================= */
+
+.primary-button,
+.upload-button {
+  background: linear-gradient(135deg, var(--cherry-bright), var(--cherry));
+  color: var(--ivory-soft);
+  border: none;
+  border-radius: 12px;
+  padding: 12px 20px;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  cursor: pointer;
+  box-shadow: 0 6px 16px rgba(103, 6, 38, 0.22);
+}
+
+.primary-button:hover,
+.upload-button:hover {
+  background: linear-gradient(135deg, var(--cherry), var(--cherry-deepest));
+  transform: translateY(-2px);
+  box-shadow: 0 10px 22px rgba(103, 6, 38, 0.28);
+}
+
+/* =========================================
+   AI COACH
+========================================= */
+
+.ai-hero-card {
+  background: linear-gradient(135deg, var(--cherry-deepest), var(--cherry), var(--cherry-bright));
+  color: var(--ivory-soft);
+  border-radius: 24px;
+  padding: 32px;
+  box-shadow: 0 14px 34px rgba(74, 4, 28, 0.24);
+  position: relative;
+  overflow: hidden;
+}
+
+.ai-hero-card::before {
+  content: "";
+  position: absolute;
+  right: -40px;
+  top: -60px;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.14), transparent 70%);
+}
+
+.ai-hero-card h3 {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 27px;
+  color: var(--ivory-soft);
+}
+
+.ai-hero-card p {
+  color: rgba(255, 250, 245, 0.85);
+}
+
+.ai-hero-icon {
+  color: var(--ivory);
+  font-size: 34px;
+}
+
+/* AI suggestions */
+.ai-suggestion-button {
+  background: var(--cherry-tint);
+  color: var(--cherry);
+  border: 1px solid #f3cddb;
+  border-radius: 30px;
+  padding: 10px 18px;
+  font-weight: 700;
+}
+
+.ai-suggestion-button:hover {
+  background: #fbdce6;
+  border-color: var(--cherry-light);
+}
+
+/* =========================================
+   AI CHAT
+========================================= */
+
+.ai-chat-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.ai-chat-header {
+  background: var(--cherry-tint);
+  border-bottom: 1px solid #f3d9e1;
+  padding: 18px 22px;
+}
+
+.ai-avatar {
+  background: var(--cherry);
+  color: var(--ivory-soft);
+}
+
+.ai-welcome-icon {
+  color: var(--cherry-bright);
+  font-size: 30px;
+}
+
+.coach-message {
+  background: var(--cherry-tint);
+  border-left: 3px solid var(--cherry);
+}
+
+.user-message {
+  background: var(--ivory);
+}
+
+/* =========================================
+   BANK STATEMENT
+========================================= */
+
+.statement-analyzer-card {
+  border-radius: 20px;
+  border: 1px solid var(--border);
+}
+
+.statement-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.statement-icon {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 14px;
+  background: var(--cherry-tint);
+  color: var(--cherry);
+  font-size: 23px;
+}
+
+.statement-upload-box {
+  margin-top: 20px;
+  border: 2px dashed #ecc7d3;
+  background: var(--ivory-soft);
+  border-radius: 18px;
+}
+
+.statement-upload-box:hover {
+  border-color: var(--cherry-light);
+  background: var(--cherry-tint);
+}
+
+.statement-upload-icon {
+  color: var(--cherry-bright);
+  font-size: 36px;
+}
+
+/* Analysis result */
+.analysis-success {
+  background: var(--success-bg);
+  color: var(--success);
+  border: 1px solid #bfe6cd;
+}
+
+.statement-summary-grid > div {
+  background: var(--ivory-soft);
+  border: 1px solid var(--border);
+}
+
+.statement-summary-grid span {
+  color: var(--text-medium);
+  font-size: 13px;
+}
+
+.statement-summary-grid strong {
+  color: var(--cherry);
+}
+
+.statement-insight {
+  background: var(--cherry-tint);
+  border-left: 4px solid var(--cherry);
+}
+
+.statement-insight strong {
+  color: var(--cherry);
+}
+
+/* =========================================
+   PROGRESS BARS
+========================================= */
+
+.progress-bar {
+  height: 10px;
+  background: #f3e2e8;
+  border-radius: 20px;
+}
+
+.progress-fill {
+  background: linear-gradient(90deg, var(--cherry-deepest), var(--cherry-bright));
+  border-radius: 20px;
+}
+
+/* =========================================
+   BADGES
+========================================= */
+
+.badge {
+  border-radius: 20px;
+  padding: 5px 11px;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.2px;
+}
+
+.badge.income {
+  background: var(--success-bg);
+  color: var(--success);
+}
+
+.badge.expense {
+  background: var(--cherry-tint);
+  color: var(--cherry);
+}
+
+/* =========================================
+   TABLES
+========================================= */
+
+table {
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+thead th {
+  color: var(--text-medium);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+}
+
+tbody tr:hover {
+  background: var(--ivory-soft);
+}
+
+/* =========================================
+   INPUTS
+========================================= */
+
+input,
+select,
+textarea {
+  border: 1px solid #e3d1c9;
+  border-radius: 10px;
+  background: var(--white);
+  color: var(--text-dark);
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--cherry-light);
+  box-shadow: 0 0 0 3px rgba(103, 6, 38, 0.12);
+}
+
+/* =========================================
+   REMOVE FILE
+========================================= */
+
+.remove-file {
+  color: var(--cherry);
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.remove-file:hover {
+  color: var(--cherry-deepest);
+}
+
+/* =========================================
+   SECTION SPACING
+========================================= */
+
+.ai-coach-page > * {
+  margin-bottom: 24px;
+}
+
+.dashboard-grid {
+  gap: 24px;
+}
+
+.summary-grid {
+  margin-bottom: 26px;
+}
+
+/* =========================================
+   CLEAN SCROLLBAR
+========================================= */
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--ivory-soft);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #d99cae;
+  border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--cherry-bright);
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 768px) {
+  .page {
+    padding: 20px;
+  }
+
+  .page-header h2 {
+    font-size: 30px;
+  }
+
+  .summary-card strong {
+    font-size: 25px;
+  }
+
+  .ai-hero-card {
+    padding: 24px;
+  }
+}
