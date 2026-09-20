@@ -108,38 +108,110 @@ export default function App() {
   // GLOBAL TRANSACTIONS
   // -----------------------------
 
-  const [transactions, setTransactions] =
-    useState(() =>
-      loadData(
-        "finance_transactions",
-        initialTransactions
-      )
-    );
+  const [transactions, setTransactions] = useState([]);
+  useEffect(() => {
+  const fetchTransactions = async () => {
+    try {
+      const response = await fetch(
+        "http://localhost:5000/api/transactions"
+      );
+
+      const data = await response.json();
+
+      const formattedTransactions = data.map((transaction) => ({
+        id: transaction._id,
+        merchant: transaction.merchant || "Unknown",
+        category: transaction.category,
+        amount: transaction.amount,
+        type:
+          transaction.type === "income"
+            ? "Credit"
+            : "Debit",
+        date: new Date(transaction.date).toLocaleDateString(
+          "en-IN"
+        ),
+      }));
+
+      setTransactions(formattedTransactions);
+
+    } catch (error) {
+      console.error(
+        "Failed to fetch transactions:",
+        error
+      );
+    }
+  };
+
+  fetchTransactions();
+}, []);
 
   // -----------------------------
   // GLOBAL BUDGETS
   // -----------------------------
 
-  const [budgets, setBudgets] =
-    useState(() =>
-      loadData(
-        "finance_budgets",
-        initialBudgets
-      )
-    );
+  const [budgets, setBudgets] = useState([]);
+  useEffect(() => {
+  const fetchBudgets = async () => {
+    try {
+      const response = await fetch(
+        "http://localhost:5000/api/budgets"
+      );
+
+      const data = await response.json();
+
+      const formattedBudgets = data.map((budget) => ({
+        id: budget._id,
+        category: budget.category,
+        limit: Number(budget.limit),
+      }));
+
+      setBudgets(formattedBudgets);
+
+    } catch (error) {
+      console.error(
+        "Failed to fetch budgets:",
+        error
+      );
+    }
+  };
+
+  fetchBudgets();
+}, []);
 
   // -----------------------------
   // GLOBAL SAVINGS GOALS
   // -----------------------------
 
-  const [goals, setGoals] =
-    useState(() =>
-      loadData(
-        "finance_goals",
-        initialGoals
-      )
-    );
+  const [goals, setGoals] = useState([]);
+  useEffect(() => {
+  const fetchGoals = async () => {
+    try {
+      const response = await fetch(
+        "http://localhost:5000/api/goals"
+      );
 
+      const data = await response.json();
+
+      const formattedGoals = data.map((goal) => ({
+        id: goal._id,
+        name: goal.name,
+        target: Number(goal.targetAmount),
+        saved: Number(goal.currentAmount),
+        deadline: goal.deadline,
+      }));
+
+      setGoals(formattedGoals);
+
+    } catch (error) {
+      console.error(
+        "Failed to fetch goals:",
+        error
+      );
+    }
+  };
+
+  fetchGoals();
+}, []);
   // -----------------------------
   // SAVE TRANSACTIONS
   // -----------------------------
