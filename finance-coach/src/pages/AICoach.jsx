@@ -9,6 +9,11 @@ export default function AICoach({
   const [question, setQuestion] = useState("");
   const [messages, setMessages] = useState([]);
 
+  // Bank Statement Demo State
+  const [statementFile, setStatementFile] = useState(null);
+  const [isAnalyzing, setIsAnalyzing] = useState(false);
+  const [statementAnalyzed, setStatementAnalyzed] = useState(false);
+
   const generateResponse = (text) => {
     const lowerText = text.toLowerCase();
 
@@ -111,6 +116,16 @@ export default function AICoach({
     setQuestion(text);
   };
 
+  // Hardcoded bank statement analysis for demo
+  const analyzeStatement = () => {
+    setIsAnalyzing(true);
+
+    setTimeout(() => {
+      setIsAnalyzing(false);
+      setStatementAnalyzed(true);
+    }, 1800);
+  };
+
   return (
     <div className="page">
       {/* HEADER */}
@@ -124,8 +139,8 @@ export default function AICoach({
         </div>
       </div>
 
-      {/* MAIN AI SECTION */}
       <div className="ai-coach-page">
+        {/* MAIN AI SECTION */}
         <div className="ai-hero-card">
           <div className="ai-hero-icon">✦</div>
 
@@ -229,6 +244,145 @@ export default function AICoach({
               Ask Coach
             </button>
           </form>
+        </div>
+
+        {/* BANK STATEMENT ANALYZER */}
+        <div className="card statement-analyzer-card">
+          <div className="statement-header">
+            <div className="statement-icon">📄</div>
+
+            <div>
+              <h3>Bank Statement Analyzer</h3>
+
+              <p>
+                Upload your bank statement and get an
+                instant financial summary.
+              </p>
+            </div>
+          </div>
+
+          {!statementFile ? (
+            <div className="statement-upload-box">
+              <div className="statement-upload-icon">
+                ↑
+              </div>
+
+              <h4>Upload your bank statement</h4>
+
+              <p>
+                Upload PDF or CSV bank statements for
+                analysis.
+              </p>
+
+              <label className="primary-button statement-upload-button">
+                Choose Statement
+
+                <input
+                  type="file"
+                  accept=".pdf,.csv"
+                  hidden
+                  onChange={(e) => {
+                    const file = e.target.files[0];
+
+                    if (file) {
+                      setStatementFile(file);
+                      setStatementAnalyzed(false);
+                    }
+                  }}
+                />
+              </label>
+            </div>
+          ) : (
+            <div className="statement-selected">
+              <div className="selected-file">
+                <div className="file-icon">
+                  📄
+                </div>
+
+                <div>
+                  <strong>
+                    {statementFile.name}
+                  </strong>
+
+                  <span>
+                    {(statementFile.size / 1024).toFixed(
+                      1
+                    )} KB
+                  </span>
+                </div>
+              </div>
+
+              {!statementAnalyzed ? (
+                <button
+                  className="primary-button"
+                  onClick={analyzeStatement}
+                  disabled={isAnalyzing}
+                >
+                  {isAnalyzing
+                    ? "Analyzing Statement..."
+                    : "Analyze Statement"}
+                </button>
+              ) : (
+                <>
+                  {/* HARD-CODED ANALYSIS RESULT */}
+                  <div className="statement-result">
+                    <div className="analysis-success">
+                      ✓ Statement analyzed successfully
+                    </div>
+
+                    <h4>Financial Summary</h4>
+
+                    <div className="statement-summary-grid">
+                      <div>
+                        <span>Total Income</span>
+                        <strong>₹30,000</strong>
+                      </div>
+
+                      <div>
+                        <span>Total Expenses</span>
+                        <strong>₹9,347</strong>
+                      </div>
+
+                      <div>
+                        <span>Available Balance</span>
+                        <strong>₹20,653</strong>
+                      </div>
+
+                      <div>
+                        <span>Top Spending</span>
+                        <strong>Shopping</strong>
+                      </div>
+                    </div>
+
+                    <div className="statement-insight">
+                      <strong>✦ AI Insight</strong>
+
+                      <p>
+                        Your highest spending category is
+                        Shopping. Potential recurring
+                        expenses were detected from
+                        Swiggy, Amazon, and Netflix.
+                        Consider setting a monthly
+                        shopping limit and reviewing
+                        recurring subscriptions.
+                      </p>
+                    </div>
+                  </div>
+                </>
+              )}
+
+              <button
+                className="remove-file"
+                onClick={() => {
+                  setStatementFile(null);
+                  setStatementAnalyzed(false);
+                  setIsAnalyzing(false);
+                }}
+              >
+                Remove Statement
+              </button>
+            </div>
+          )}
         </div>
 
         {/* QUICK FINANCE SUMMARY */}
